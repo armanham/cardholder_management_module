@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -43,6 +46,19 @@ public class AddressEntity {
 
     @Column(name = "postal_code", nullable = false, length = 10)
     private String postalCode;
+
+
+    @Column(name = "createdOn")
+    private Date createdOn;
+
+    @Column(name = "updatedOn")
+    private Date updatedOn;
+
+    @Column(name = "deletedOn")
+    private Date deletedOn;
+
+    @Column(name = "isDeleted", nullable = false)
+    private Boolean isDeleted;
 
     @ManyToMany(mappedBy = "addresses")
     private Set<CardHolderEntity> cardHolders = new LinkedHashSet<>();
