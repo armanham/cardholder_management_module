@@ -16,8 +16,8 @@ public class AccountDemoEntity {
     @JoinColumn(
             name = "card_holder_id",
             referencedColumnName = "id",
-            foreignKey = @ForeignKey(name = "FK_account_card_holder_id"),
-            nullable = false)
+            foreignKey = @ForeignKey(name = "FK_account_card_holder_id")
+    )
     private CardHolderEntity cardHolder;
 
     public void setId(Long id) {

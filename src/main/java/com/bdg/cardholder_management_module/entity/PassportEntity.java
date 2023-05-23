@@ -20,7 +20,7 @@ import java.sql.Date;
 public class PassportEntity {
 
     @Id
-    @Column(name = "serial_no", length = 24)
+    @Column(name = "serial_no", length = 24, updatable = false)
     private String serialNumber;
 
     @Column(name = "nationality", nullable = false, length = 32)
@@ -36,4 +36,32 @@ public class PassportEntity {
 
     @Column(name = "given_by", nullable = false, length = 12)
     private String givenBy;
+
+    @Column(name = "created_on")
+    @Temporal(TemporalType.DATE)
+    private Date createdOn;
+
+    @Column(name = "updated_on")
+    @Temporal(TemporalType.DATE)
+    private Date updatedOn;
+
+    @Column(name = "is_deleted", nullable = false)
+    private Boolean isDeleted;
+
+    public PassportEntity(PassportModel passportModel){
+        this.serialNumber = passportModel.getSerialNumber();
+        this.nationality = passportModel.getNationality();
+        this.givenDate = Date.valueOf(passportModel.getGivenDate());
+        this.expireDate = Date.valueOf(passportModel.getExpireDate());
+        this.givenBy = passportModel.getGivenBy();
+    }
+
+    public PassportEntity getFromModel(PassportModel passportModel){
+        this.serialNumber = passportModel.getSerialNumber();
+        this.nationality = passportModel.getNationality();
+        this.givenDate = Date.valueOf(passportModel.getGivenDate());
+        this.expireDate = Date.valueOf(passportModel.getExpireDate());
+        this.givenBy = passportModel.getGivenBy();
+        return this;
+    }
 }

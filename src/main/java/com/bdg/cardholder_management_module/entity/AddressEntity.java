@@ -18,10 +18,6 @@ import java.util.Set;
                 @UniqueConstraint(
                         name = "UC_street_city_state",
                         columnNames = {"street", "city", "country"}
-                ),
-                @UniqueConstraint(
-                        name = "UC_postal_code",
-                        columnNames = {"postal_code"}
                 )
         }
 )
@@ -44,20 +40,15 @@ public class AddressEntity {
     @Column(name = "country", nullable = false, length = 64)
     private String country;
 
-    @Column(name = "postal_code", nullable = false, length = 10)
-    private String postalCode;
-
-
-    @Column(name = "createdOn")
+    @Column(name = "created_on")
+    @Temporal(TemporalType.DATE)
     private Date createdOn;
 
-    @Column(name = "updatedOn")
+    @Column(name = "updated_on")
+    @Temporal(TemporalType.DATE)
     private Date updatedOn;
 
-    @Column(name = "deletedOn")
-    private Date deletedOn;
-
-    @Column(name = "isDeleted", nullable = false)
+    @Column(name = "is_deleted", nullable = false)
     private Boolean isDeleted;
 
     @ManyToMany(mappedBy = "addresses")

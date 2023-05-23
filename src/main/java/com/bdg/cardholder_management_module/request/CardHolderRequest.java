@@ -10,19 +10,19 @@ public record CardHolderRequest(
 
         @Pattern(
                 regexp = "^[A-Z][A-Za-z\\s-]*$",
-                message = "First name must be started with uppercase"
+                message = "First name must start with uppercase"
         )
         String firstName,
 
         @Pattern(
                 regexp = "^[A-Z][A-Za-z\\s-]*$",
-                message = "First name must be started with uppercase"
+                message = "Last name must start with uppercase"
         )
         String lastName,
 
         @Pattern(
                 regexp = "^(19|20)\\d\\d-(0[1-9]|1[0-2])-(0[1-9]|1\\d|2[0-8]|(0[1-9]|1[0-9]|2[0-9])(?=\\d))$",
-                message = "Regex: dd-mm-yyyy"
+                message = "Regex: yyyy-mm-dd"
         )
         Date dob,
 

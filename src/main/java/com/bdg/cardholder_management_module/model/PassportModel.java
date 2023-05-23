@@ -3,7 +3,7 @@ package com.bdg.cardholder_management_module.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -11,9 +11,12 @@ public final class PassportModel {
 
     private String serialNumber;
     private String nationality;
-    private Date given;
-    private Date expireDate;
+    private String givenDate;
+    private String expireDate;
     private String givenBy;
+
+    public PassportModel() {
+    }
 
     public PassportModel(
             String serialNumber,
@@ -23,7 +26,7 @@ public final class PassportModel {
             String givenBy) {
         this.serialNumber = serialNumber;
         this.nationality = nationality;
-        this.given = given;
+        this.givenDate = givenDate;
         this.expireDate = expireDate;
         this.givenBy = givenBy;
     }

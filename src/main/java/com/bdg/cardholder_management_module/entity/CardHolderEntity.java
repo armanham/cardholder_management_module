@@ -58,6 +58,17 @@ public class CardHolderEntity {
     @Column(name = "type", nullable = false)
     private CardHolderType cardHolderType;
 
+    @Column(name = "created_on")
+    @Temporal(TemporalType.DATE)
+    private Date createdOn;
+
+    @Column(name = "updated_on")
+    @Temporal(TemporalType.DATE)
+    private Date updatedOn;
+
+    @Column(name = "is_deleted", nullable = false)
+    private Boolean isDeleted;
+
     @OneToOne
     @JoinColumn(
             name = "passport",

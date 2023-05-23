@@ -1,8 +1,12 @@
 package com.bdg.cardholder_management_module.model;
 
 import com.bdg.cardholder_management_module.entity.CardHolderType;
+import com.bdg.cardholder_management_module.request.CardHolderRequest;
+import jakarta.validation.Valid;
+import jakarta.validation.executable.ValidateOnExecution;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Date;
 
@@ -33,5 +37,24 @@ public final class CardHolderModel {
         this.phone = phone;
         this.email = email;
         this.cardHolderType = cardHolderType;
+    }
+
+    public CardHolderModel getFromRequest(CardHolderRequest cardHolderRequest){
+        this.firstName = cardHolderRequest.firstName();
+        this.lastName = cardHolderRequest.lastName();
+        this.dob = cardHolderRequest.dob();
+        this.phone = cardHolderRequest.phone();
+        this.email = cardHolderRequest.email();
+        this.cardHolderType = CardHolderType.valueOf(cardHolderRequest.cardHolderType());
+        return this;
+    }
+
+    public CardHolderModel(CardHolderRequest cardHolderRequest) {
+        this.firstName = cardHolderRequest.firstName();
+        this.lastName = cardHolderRequest.lastName();
+        this.dob = cardHolderRequest.dob();
+        this.phone = cardHolderRequest.phone();
+        this.email = cardHolderRequest.email();
+        this.cardHolderType = CardHolderType.valueOf(cardHolderRequest.cardHolderType());
     }
 }

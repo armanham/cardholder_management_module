@@ -14,21 +14,43 @@ public final class AddressModel {
     private String street;
     private String city;
     private String country;
-    private String postalCode;
-    private Date createdOn;
-    private Date updatedOn;
-    private Date deletedOn;
-    private Boolean isDeleted;
 
-    public AddressModel(Long id, String street, String city, String country, String postalCode, Date createdOn, Date updatedOn, Date deletedOn, Boolean isDeleted) {
+    public AddressModel() {
+    }
+
+    public AddressModel(
+            Long id,
+            String street,
+            String city,
+            String country) {
         this.id = id;
         this.street = street;
         this.city = city;
         this.country = country;
-        this.postalCode = postalCode;
-        this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-        this.deletedOn = deletedOn;
-        this.isDeleted = isDeleted;
+    }
+    public AddressModel(AddressRequest addressRequest){
+        this.street = addressRequest.street();
+        this.city = addressRequest.city();
+        this.country = addressRequest.country();
+    }
+
+    public AddressModel(AddressEntity addressEntity){
+        this.street = addressEntity.getStreet();
+        this.city = addressEntity.getCity();
+        this.country = addressEntity.getCountry();
+    }
+
+    public AddressModel getFromRequest(AddressRequest addressRequest){
+        this.street = addressRequest.street();
+        this.city = addressRequest.city();
+        this.country = addressRequest.country();
+        return this;
+    }
+
+    public AddressModel getFromEntity(AddressEntity addressEntity){
+        this.street = addressEntity.getStreet();
+        this.city = addressEntity.getCity();
+        this.country = addressEntity.getCountry();
+        return this;
     }
 }
