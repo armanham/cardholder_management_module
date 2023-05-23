@@ -1,5 +1,6 @@
 package com.bdg.cardholder_management_module.model;
 
+import com.bdg.cardholder_management_module.request.PassportRequest;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,4 +31,22 @@ public final class PassportModel {
         this.expireDate = expireDate;
         this.givenBy = givenBy;
     }
+
+    public PassportModel(PassportRequest passportRequest){
+        this.serialNumber = passportRequest.serialNumber();
+        this.nationality = passportRequest.nationality();
+        this.givenDate = passportRequest.givenDate();
+        this.expireDate = passportRequest.expireDate();
+        this.givenBy = passportRequest.givenBy();
+    }
+    public PassportModel getFromRequest(PassportRequest passportRequest){
+        this.serialNumber = passportRequest.serialNumber();
+        this.nationality = passportRequest.nationality();
+        this.givenDate = passportRequest.givenDate();
+        this.expireDate = passportRequest.expireDate();
+        this.givenBy = passportRequest.givenBy();
+        return this;
+    }
+
+
 }

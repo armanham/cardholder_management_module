@@ -2,6 +2,8 @@ package com.bdg.cardholder_management_module.entity;
 
 import com.bdg.cardholder_management_module.entity.demo.AccountDemoEntity;
 import com.bdg.cardholder_management_module.entity.demo.CardDemoEntity;
+import com.bdg.cardholder_management_module.model.CardHolderModel;
+import com.bdg.cardholder_management_module.model.PassportModel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -101,6 +103,37 @@ public class CardHolderEntity {
             }
     )
     private Set<AddressEntity> addresses = new LinkedHashSet<>();
+
+    public CardHolderEntity(CardHolderModel cardHolderModel){
+        this.firstName = cardHolderModel.getFirstName();
+        this.lastName = cardHolderModel.getLastName();
+        this.dob = Date.valueOf(cardHolderModel.getDob());
+        this.phone = cardHolderModel.getPhone();
+        this.email = cardHolderModel.getEmail();
+        this.cardHolderType = cardHolderModel.getCardHolderType();
+        //this.passport = new PassportEntity(passportModel);
+    }
+
+    public CardHolderEntity getFromModel(CardHolderModel cardHolderModel, PassportModel passportModel){
+        this.firstName = cardHolderModel.getFirstName();
+        this.lastName = cardHolderModel.getLastName();
+        this.dob = Date.valueOf(cardHolderModel.getDob());
+        this.phone = cardHolderModel.getPhone();
+        this.email = cardHolderModel.getEmail();
+        this.cardHolderType = cardHolderModel.getCardHolderType();
+        this.passport = passport.getFromModel(passportModel);
+        return this;
+    }
+
+    public CardHolderEntity getFromModel(CardHolderModel cardHolderModel){
+        this.firstName = cardHolderModel.getFirstName();
+        this.lastName = cardHolderModel.getLastName();
+        this.dob = Date.valueOf(cardHolderModel.getDob());
+        this.phone = cardHolderModel.getPhone();
+        this.email = cardHolderModel.getEmail();
+        this.cardHolderType = cardHolderModel.getCardHolderType();
+        return this;
+    }
 
     public void addAccount(AccountDemoEntity account) {
         this.accounts.add(account);

@@ -6,6 +6,5 @@ public interface AddressService {
 
     boolean save(AddressModel addressModel);
     boolean update(AddressModel addressModel, long id);
-
     public boolean delete( long id);
 }

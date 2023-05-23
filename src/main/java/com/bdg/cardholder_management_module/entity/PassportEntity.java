@@ -1,5 +1,6 @@
 package com.bdg.cardholder_management_module.entity;
 
+import com.bdg.cardholder_management_module.model.PassportModel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,8 @@ import java.sql.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-public class PassportEntity {
+public class
+PassportEntity {
 
     @Id
     @Column(name = "serial_no", length = 24, updatable = false)
