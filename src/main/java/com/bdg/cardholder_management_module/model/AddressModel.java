@@ -1,10 +1,9 @@
 package com.bdg.cardholder_management_module.model;
 
+import com.bdg.cardholder_management_module.entity.AddressEntity;
+import com.bdg.cardholder_management_module.request.AddressRequest;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter

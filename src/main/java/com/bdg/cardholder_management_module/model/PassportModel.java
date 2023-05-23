@@ -22,8 +22,8 @@ public final class PassportModel {
     public PassportModel(
             String serialNumber,
             String nationality,
-            Date given,
-            Date expireDate,
+            String givenDate,
+            String expireDate,
             String givenBy) {
         this.serialNumber = serialNumber;
         this.nationality = nationality;

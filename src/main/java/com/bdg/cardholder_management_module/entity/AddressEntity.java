@@ -1,5 +1,6 @@
 package com.bdg.cardholder_management_module.entity;
 
+import com.bdg.cardholder_management_module.model.AddressModel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -53,4 +54,17 @@ public class AddressEntity {
 
     @ManyToMany(mappedBy = "addresses")
     private Set<CardHolderEntity> cardHolders = new LinkedHashSet<>();
+
+    public AddressEntity(AddressModel addressModel){
+        this.city = addressModel.getCity();
+        this.country = addressModel.getCountry();
+        this.street = addressModel.getStreet();
+    }
+
+    public AddressEntity getFromModel(AddressModel addressModel){
+        this.street = addressModel.getStreet();
+        this.city = addressModel.getCity();
+        this.country = addressModel.getCountry();
+        return this;
+    }
 }

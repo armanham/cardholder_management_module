@@ -17,7 +17,7 @@ public final class CardHolderModel {
     private Long id;
     private String firstName;
     private String lastName;
-    private Date dob;
+    private String dob;
     private String phone;
     private String email;
     private CardHolderType cardHolderType;
@@ -26,7 +26,7 @@ public final class CardHolderModel {
             Long id,
             String firstName,
             String lastName,
-            Date dob,
+            String dob,
             String phone,
             String email,
             CardHolderType cardHolderType) {
