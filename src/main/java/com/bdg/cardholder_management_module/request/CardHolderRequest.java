@@ -44,6 +44,6 @@ public record CardHolderRequest(
                 regexp = "^(LEGAL|INDIVIDUAL)$",
                 message = "Card holder type: LEGAL or INDIVIDUAL"
         )
-        CardHolderType cardHolderType
-) {
+        String cardHolderType
+        ) {
 }

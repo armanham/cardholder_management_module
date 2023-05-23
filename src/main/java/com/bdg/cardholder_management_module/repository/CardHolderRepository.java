@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface CardHolderRepository extends JpaRepository<CardHolderEntity,Long > {
+public interface CardHolderRepository extends JpaRepository<CardHolderEntity, Long> {
 
     Optional<CardHolderEntity> findCardHolderEntityByPassport_SerialNumber(String serialNumber);
 
